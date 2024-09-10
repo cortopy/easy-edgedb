@@ -193,7 +193,7 @@ union (
   insert NPC {
     name := character_name,
     places_visited := (select City filter .name = 'London'),
-    lover := (select Person filter .name = 'Lucy Westenra'),
+    lover := assert_single((select Person filter .name = 'Lucy Westenra')),
   }
 );
 ```
